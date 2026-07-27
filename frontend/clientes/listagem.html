@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - Delivery App</title>
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/components.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <main class="container">
+        <div class="page-header">
+            <h1>👥 Clientes</h1>
+            <a href="cadastro.html" class="btn btn-primary">+ Novo Cliente</a>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Lista de Clientes</h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar cliente..." class="search-input">
+                </div>
+            </div>
+            <div id="clientesContent">
+                <div class="loading">Carregando</div>
+            </div>
+        </div>
+    </main>
+    
+    <div id="footer-placeholder"></div>
+    
+    <script src="/utils/constants.js"></script>
+    <script src="/utils/api.js"></script>
+    <script src="/utils/helpers.js"></script>
+    <script src="/components/load-header-footer.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

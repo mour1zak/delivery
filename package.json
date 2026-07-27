@@ -1,0 +1,16 @@
+{
+  "name": "sistema-delivery",
+  "version": "1.0.0",
+  "description": "Sistema de Delivery para Restaurante",
+  "main": "index.html",
+  "scripts": {
+    "server": "json-server --watch backend/db.json --port 3000",
+    "start": "npm run server"
+  },
+  "keywords": ["delivery", "restaurante", "vanilla-js"],
+  "author": "Desenvolvedor Full Stack",
+  "license": "MIT",
+  "devDependencies": {
+    "json-server": "^0.17.4"
+  }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos - Delivery App</title>
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/components.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <main class="container">
+        <div class="page-header">
+            <h1>🛵 Pedidos</h1>
+            <a href="cadastro.html" class="btn btn-primary">+ Novo Pedido</a>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Lista de Pedidos</h2>
+                <div class="filter-group">
+                    <input type="text" id="searchInput" placeholder="Buscar por cliente..." class="search-input">
+                    <select id="statusFilter" class="filter-select">
+                        <option value="">Todos os Status</option>
+                    </select>
+                </div>
+            </div>
+            <div id="pedidosContent">
+                <div class="loading">Carregando</div>
+            </div>
+            <div id="pagination" class="pagination"></div>
+        </div>
+    </main>
+    
+    <div id="footer-placeholder"></div>
+    
+    <script src="/utils/constants.js"></script>
+    <script src="/utils/api.js"></script>
+    <script src="/utils/helpers.js"></script>
+    <script src="/components/load-header-footer.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<header class="main-header">
+    <div class="header-container">
+        <div class="logo">
+            <h1>🍔 Delivery App</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/dashboard/index.html" class="nav-link">📊 Dashboard</a></li>
+                <li><a href="/clientes/listagem.html" class="nav-link">👥 Clientes</a></li>
+                <li><a href="/produtos/listagem.html" class="nav-link">🍕 Produtos</a></li>
+                <li><a href="/pedidos/listagem.html" class="nav-link">🛵 Pedidos</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-mobile-menu">☰</button>
+        </div>
+    </div>
+</header>
+
+<style>
+.main-header {
+    background: var(--secondary-color);
+    color: white;
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.1);
+    text-decoration: none;
+}
+
+.nav-link.active {
+    background: var(--primary-color);
+}
+
+.btn-mobile-menu {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--secondary-color);
+        padding: 20px;
+    }
+    
+    .main-nav.active {
+        display: block;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-mobile-menu {
+        display: block;
+    }
+}
+</style>

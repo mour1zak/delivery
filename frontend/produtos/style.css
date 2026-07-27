@@ -1,0 +1,21 @@
+/* Mesmos estilos dos clientes, com adições específicas */
+.filter-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.produto-indisponivel {
+    opacity: 0.6;
+    background-color: #f8f9fa;
+}
+
+.categoria-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--light-gray);
+    color: var(--secondary-color);
+}

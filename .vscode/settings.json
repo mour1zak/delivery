@@ -1,0 +1,8 @@
+{
+  "liveServer.settings.ignoreFiles": [
+    "backend/db.json",
+    "node_modules/**"
+  ],
+  "liveServer.settings.root": "/frontend",
+  "liveServer.settings.port": 5500
+}
