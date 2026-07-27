@@ -1,5 +1,360 @@
 {
-  "clientes": [],
-  "produtos": [],
-  "pedidos": []
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "Gabriel Silva",
+      "cpf": "333.333.333-33",
+      "telefone": "(11) 98283-8382",
+      "endereco": "Rua das Flores, 123",
+      "referencia": "Perto do mercado",
+      "bairro": "Centro",
+      "cep": "08485-300",
+      "ativo": false
+    },
+    {
+      "id": 2,
+      "nome": "Ana Paula Santos",
+      "cpf": "123.456.789-00",
+      "telefone": "(11) 98765-4321",
+      "endereco": "Av. Paulista, 1000",
+      "referencia": "Ao lado do metrô",
+      "bairro": "Bela Vista",
+      "cep": "01310-100",
+      "ativo": false
+    },
+    {
+      "nome": "Carlos Eduardo Lima",
+      "cpf": "987.654.321-00",
+      "telefone": "(11) 91234-5678",
+      "endereco": "Rua Augusta, 500",
+      "referencia": "Próximo ao shopping",
+      "bairro": "Consolação",
+      "cep": "01305-000",
+      "ativo": true,
+      "id": 3
+    },
+    {
+      "id": 4,
+      "nome": "Mariana Oliveira",
+      "cpf": "111.222.333-44",
+      "telefone": "(11) 99876-5432",
+      "endereco": "Rua Oscar Freire, 200",
+      "referencia": "Em frente à praça",
+      "bairro": "Jardins",
+      "cep": "01426-000",
+      "ativo": true
+    },
+    {
+      "id": 5,
+      "nome": "Roberto Almeida",
+      "cpf": "555.666.777-88",
+      "telefone": "(11) 97654-3210",
+      "endereco": "Av. Brasil, 1500",
+      "referencia": "Próximo ao hospital",
+      "bairro": "Jardim América",
+      "cep": "01430-000",
+      "ativo": true
+    },
+    {
+      "id": 6,
+      "nome": "Patrícia Costa",
+      "cpf": "999.888.777-66",
+      "telefone": "(11) 96543-2109",
+      "endereco": "Rua Haddock Lobo, 300",
+      "referencia": "Ao lado da farmácia",
+      "bairro": "Cerqueira César",
+      "cep": "01414-000",
+      "ativo": true
+    },
+    {
+      "id": 7,
+      "nome": "Fernando Rocha",
+      "cpf": "444.333.222-11",
+      "telefone": "(11) 95432-1098",
+      "endereco": "Rua Bela Cintra, 400",
+      "referencia": "Perto do parque",
+      "bairro": "Consolação",
+      "cep": "01415-000",
+      "ativo": false
+    },
+    {
+      "id": 8,
+      "nome": "Juliana Martins",
+      "cpf": "777.888.999-00",
+      "telefone": "(11) 94321-0987",
+      "endereco": "Av. Rebouças, 800",
+      "referencia": "Ao lado do supermercado",
+      "bairro": "Pinheiros",
+      "cep": "05401-000",
+      "ativo": false
+    },
+    {
+      "id": 9,
+      "nome": "Ricardo Santos",
+      "cpf": "222.111.333-55",
+      "telefone": "(11) 93210-9876",
+      "endereco": "Rua Teodoro Sampaio, 600",
+      "referencia": "Próximo à estação",
+      "bairro": "Pinheiros",
+      "cep": "05406-000",
+      "ativo": true
+    },
+    {
+      "id": 10,
+      "nome": "Camila Ferreira",
+      "cpf": "666.555.444-33",
+      "telefone": "(11) 92109-8765",
+      "endereco": "Rua Fradique Coutinho, 700",
+      "referencia": "Em frente ao cinema",
+      "bairro": "Vila Madalena",
+      "cep": "05416-000",
+      "ativo": false
+    }
+  ],
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "X-Burger",
+      "categoria": "lanche",
+      "preco": 25.9,
+      "disponivel": true,
+      "tipoProducao": "padrão"
+    },
+    {
+      "nome": "X-Bacon",
+      "categoria": "bebida",
+      "preco": 29.9,
+      "tipoProducao": "padrão",
+      "disponivel": false,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "nome": "X-Salada",
+      "categoria": "lanche",
+      "preco": 22.9,
+      "disponivel": false,
+      "tipoProducao": "padrão"
+    },
+    {
+      "id": 4,
+      "nome": "Coca-Cola 350ml",
+      "categoria": "bebida",
+      "preco": 7.5,
+      "disponivel": true,
+      "tipoProducao": "padrão"
+    },
+    {
+      "id": 5,
+      "nome": "Suco de Laranja",
+      "categoria": "bebida",
+      "preco": 8.9,
+      "disponivel": true,
+      "tipoProducao": "padrão"
+    },
+    {
+      "id": 6,
+      "nome": "Água Mineral",
+      "categoria": "bebida",
+      "preco": 4.5,
+      "disponivel": true,
+      "tipoProducao": "padrão"
+    },
+    {
+      "id": 7,
+      "nome": "Pudim de Leite",
+      "categoria": "sobremesa",
+      "preco": 9.9,
+      "disponivel": true,
+      "tipoProducao": "padrão"
+    },
+    {
+      "id": 8,
+      "nome": "Sorvete de Chocolate",
+      "categoria": "sobremesa",
+      "preco": 12.9,
+      "disponivel": true,
+      "tipoProducao": "padrão"
+    },
+    {
+      "id": 9,
+      "nome": "Batata Frita",
+      "categoria": "acompanhamento",
+      "preco": 12.9,
+      "disponivel": true,
+      "tipoProducao": "padrão"
+    },
+    {
+      "id": 10,
+      "nome": "Anéis de Cebola",
+      "categoria": "acompanhamento",
+      "preco": 14.9,
+      "disponivel": true,
+      "tipoProducao": "padrão"
+    }
+  ],
+  "pedidos": [
+    {
+      "id": 1,
+      "clienteId": 2,
+      "dataHora": "2026-07-27T14:30:00.000Z",
+      "status": "entregue",
+      "valorTotal": 55.8,
+      "itens": [
+        {
+          "produtoId": 1,
+          "quantidade": 2,
+          "precoUnitario": 25.9,
+          "observacoes": "Sem cebola"
+        },
+        {
+          "produtoId": 9,
+          "quantidade": 1,
+          "precoUnitario": 12.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null
+    },
+    {
+      "id": 2,
+      "clienteId": 3,
+      "dataHora": "2026-07-27T15:20:00.000Z",
+      "status": "entregue",
+      "valorTotal": 52.8,
+      "itens": [
+        {
+          "produtoId": 2,
+          "quantidade": 1,
+          "precoUnitario": 29.9,
+          "observacoes": "Bacon bem frito"
+        },
+        {
+          "produtoId": 4,
+          "quantidade": 2,
+          "precoUnitario": 7.5,
+          "observacoes": "Com gelo"
+        },
+        {
+          "produtoId": 8,
+          "quantidade": 1,
+          "precoUnitario": 12.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null
+    },
+    {
+      "id": 3,
+      "clienteId": 4,
+      "dataHora": "2026-07-27T16:00:00.000Z",
+      "status": "saiu para entrega",
+      "valorTotal": 63.7,
+      "itens": [
+        {
+          "produtoId": 3,
+          "quantidade": 2,
+          "precoUnitario": 22.9,
+          "observacoes": "Sem tomate"
+        },
+        {
+          "produtoId": 5,
+          "quantidade": 2,
+          "precoUnitario": 8.9,
+          "observacoes": "Sem açúcar"
+        },
+        {
+          "produtoId": 10,
+          "quantidade": 1,
+          "precoUnitario": 14.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null
+    },
+    {
+      "id": 4,
+      "clienteId": 6,
+      "dataHora": "2026-07-27T16:45:00.000Z",
+      "status": "entregue",
+      "valorTotal": 68.6,
+      "itens": [
+        {
+          "produtoId": 1,
+          "quantidade": 1,
+          "precoUnitario": 25.9,
+          "observacoes": ""
+        },
+        {
+          "produtoId": 2,
+          "quantidade": 1,
+          "precoUnitario": 29.9,
+          "observacoes": "Cheddar extra"
+        },
+        {
+          "produtoId": 6,
+          "quantidade": 2,
+          "precoUnitario": 4.5,
+          "observacoes": "Sem gás"
+        },
+        {
+          "produtoId": 7,
+          "quantidade": 1,
+          "precoUnitario": 9.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null
+    },
+    {
+      "id": 5,
+      "clienteId": 8,
+      "dataHora": "2026-07-27T17:10:00.000Z",
+      "status": "em preparo",
+      "valorTotal": 45.8,
+      "itens": [
+        {
+          "produtoId": 3,
+          "quantidade": 1,
+          "precoUnitario": 22.9,
+          "observacoes": "Pão bem tostado"
+        },
+        {
+          "produtoId": 9,
+          "quantidade": 2,
+          "precoUnitario": 12.9,
+          "observacoes": "Com queijo"
+        },
+        {
+          "produtoId": 4,
+          "quantidade": 1,
+          "precoUnitario": 7.5,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null
+    },
+    {
+      "clienteId": 2,
+      "dataHora": "2026-07-27T19:24:22.858Z",
+      "status": "cancelado",
+      "valorTotal": 112.5,
+      "itens": [
+        {
+          "produtoId": 1,
+          "quantidade": 4,
+          "precoUnitario": 25.9,
+          "observacoes": ""
+        },
+        {
+          "produtoId": 5,
+          "quantidade": 1,
+          "precoUnitario": 8.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": "Cliente desistiu",
+      "id": 6
+    }
+  ]
 }

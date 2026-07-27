@@ -1,17 +1,24 @@
-/* Reset e Variáveis */
+/* Reset e Variáveis - VERSÃO BURGUR #12372A */
 :root {
-  --primary-color: #e74c3c;
-  --secondary-color: #2c3e50;
-  --success-color: #27ae60;
-  --warning-color: #f39c12;
-  --danger-color: #e74c3c;
-  --info-color: #3498db;
-  --light-gray: #ecf0f1;
-  --medium-gray: #bdc3c7;
-  --dark-gray: #7f8c8d;
-  --white: #ffffff;
-  --shadow: 0 2px 10px rgba(0,0,0,0.1);
-  --radius: 8px;
+  --primary-color: #12372A;
+  --primary-dark: #0A251C;
+  --primary-light: #1A4F3D;
+  --secondary-color: #12372A;
+  --secondary-light: #1A4F3D;
+  --accent-color: #FBFADA;
+  --text-color: #FBFADA;
+  --success-color: #FBFADA;
+  --warning-color: #FBFADA;
+  --danger-color: #FBFADA;
+  --info-color: #FBFADA;
+  --light-gray: #FBFADA;
+  --medium-gray: #FBFADA;
+  --dark-gray: #0A251C;
+  --white: #FFFFFF;
+  --shadow: 0 8px 32px rgba(0,0,0,0.5);
+  --radius: 16px;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.06);
 }
 
 * {
@@ -21,10 +28,16 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f6fa;
-  color: #2c3e50;
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #12372A;
+  background-image: 
+    radial-gradient(ellipse at 20% 50%, rgba(18, 55, 42, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(18, 55, 42, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(10, 37, 28, 0.1) 0%, transparent 50%);
+  background-color: #12372A;
+  color: #FBFADA;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 .container {
@@ -34,16 +47,199 @@ body {
 }
 
 /* Tipografia */
-h1 { font-size: 2rem; margin-bottom: 1rem; }
-h2 { font-size: 1.5rem; margin-bottom: 0.8rem; }
-h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
+h1 { 
+  font-size: 2.2rem; 
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.5px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+h1 .highlight {
+  color: #FBFADA;
+}
+
+h2 { 
+  font-size: 1.4rem; 
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+h3 { 
+  font-size: 1.1rem; 
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: #FBFADA;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+p, span, li, td, th, label, input, select, textarea, button {
+  color: #FBFADA;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
 
 /* Links */
 a {
-  color: var(--primary-color);
+  color: #FBFADA;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(251, 250, 218, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 250, 218, 0.5);
+}
+
+/* ============================================ */
+/* SELECT DO MODAL DE CANCELAMENTO - CORREÇÃO */
+/* ============================================ */
+
+/* Forçar estilo do select */
+.swal2-select-custom {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 2px solid rgba(251, 250, 218, 0.2) !important;
+    border-radius: 12px !important;
+    color: #FBFADA !important;
+    font-family: 'Inter', 'Segoe UI', sans-serif !important;
+    font-size: 15px !important;
+    padding: 14px 18px !important;
+    min-height: 52px !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    outline: none !important;
+    transition: all 0.3s ease !important;
+    appearance: auto !important;
+    -webkit-appearance: auto !important;
+}
+
+.swal2-select-custom:focus {
+    border-color: #FBFADA !important;
+    box-shadow: 0 0 0 4px rgba(251, 250, 218, 0.15) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.swal2-select-custom option {
+    background: #0A251C !important;
+    color: #FBFADA !important;
+    padding: 12px 16px !important;
+    font-family: 'Inter', 'Segoe UI', sans-serif !important;
+    font-size: 14px !important;
+    border-bottom: 1px solid rgba(251, 250, 218, 0.05) !important;
+}
+
+.swal2-select-custom option:hover {
+    background: rgba(251, 250, 218, 0.08) !important;
+}
+
+.swal2-select-custom option:checked {
+    background: rgba(251, 250, 218, 0.12) !important;
+}
+
+/* Placeholder do select (primeira opção) */
+.swal2-select-custom option[value=""] {
+    color: rgba(251, 250, 218, 0.4) !important;
+    font-style: italic !important;
+}
+
+/* ============================================ */
+/* BOTÕES DO MODAL - CORREÇÃO */
+/* ============================================ */
+
+.swal2-actions {
+    gap: 10px !important;
+    margin-top: 12px !important;
+    z-index: 10001 !important;
+    position: relative !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+}
+
+/* BOTÃO DE CONFIRMAÇÃO (OK, SIM, CANCELAR PEDIDO) */
+.swal2-confirm {
+    background: #FBFADA !important;
+    color: #12372A !important;
+    font-weight: 700 !important;
+    padding: 10px 28px !important;
+    border-radius: 50px !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    font-family: 'Inter', 'Segoe UI', sans-serif !important;
+    border: none !important;
+    min-width: 120px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 16px rgba(251, 250, 218, 0.05) !important;
+}
+
+.swal2-confirm:hover {
+    background: #FFFFFF !important;
+    color: #12372A !important;
+    transform: scale(1.03) !important;
+    box-shadow: 0 8px 24px rgba(251, 250, 218, 0.2) !important;
+}
+
+.swal2-confirm:active {
+    transform: scale(0.97) !important;
+}
+
+.swal2-confirm:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 4px rgba(251, 250, 218, 0.15) !important;
+}
+
+/* BOTÃO DE CANCELAR (NÃO, VOLTAR) */
+.swal2-cancel {
+    background: rgba(251, 250, 218, 0.06) !important;
+    color: #FBFADA !important;
+    font-weight: 500 !important;
+    padding: 10px 28px !important;
+    border-radius: 50px !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    font-family: 'Inter', 'Segoe UI', sans-serif !important;
+    border: 1px solid rgba(251, 250, 218, 0.08) !important;
+    min-width: 120px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.swal2-cancel:hover {
+    background: rgba(251, 250, 218, 0.12) !important;
+    color: #FFFFFF !important;
+    transform: scale(1.03) !important;
+}
+
+.swal2-cancel:active {
+    transform: scale(0.97) !important;
+}
+
+.swal2-cancel:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 4px rgba(251, 250, 218, 0.05) !important;
 }

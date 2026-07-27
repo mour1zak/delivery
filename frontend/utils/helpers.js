@@ -13,10 +13,7 @@ class Helpers {
     }
 
     static formatarCPF(cpf) {
-        // Remove tudo que não é número
         const numeros = cpf.replace(/\D/g, '');
-        
-        // Aplica máscara
         return numeros.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
     }
 
@@ -123,7 +120,10 @@ class Helpers {
         }
     }
 
-    // Mensagens do sistema
+    // ============================================
+    // MENSAGENS DO SISTEMA - CORREÇÃO DEFINITIVA
+    // ============================================
+
     static async mostrarConfirmacao(mensagem) {
         const result = await Swal.fire({
             title: 'Confirmação',
@@ -132,35 +132,109 @@ class Helpers {
             showCancelButton: true,
             confirmButtonText: 'Sim',
             cancelButtonText: 'Não',
-            reverseButtons: true
+            reverseButtons: true,
+            // REMOVER QUALQUER INPUT
+            showConfirmButton: true,
+            showCancelButton: true,
+            // Estilos
+            background: '#12372A',
+            color: '#FBFADA',
+            confirmButtonColor: '#FBFADA',
+            confirmButtonTextColor: '#12372A',
+            cancelButtonColor: 'rgba(251, 250, 218, 0.06)',
+            cancelButtonTextColor: '#FBFADA',
+            backdrop: 'rgba(0, 0, 0, 0.7)',
+            // Remover HTML extra
+            html: null,
+            footer: null,
+            // FORÇAR NÃO TER INPUT
+            input: undefined,
+            inputAttributes: undefined,
+            inputOptions: undefined,
+            inputPlaceholder: undefined,
+            inputValue: undefined,
+            inputValidator: undefined,
+            inputAutoFocus: false,
+            inputAutoTrim: false
         });
         
         return result.isConfirmed;
     }
 
-    static mostrarSucesso(mensagem) {
+    static async mostrarSucesso(mensagem) {
         return Swal.fire({
             icon: 'success',
             title: 'Sucesso!',
             text: mensagem,
-            timer: 2000,
-            showConfirmButton: false
+            timer: 2500,
+            showConfirmButton: true,
+            confirmButtonText: 'OK',
+            background: '#12372A',
+            color: '#FBFADA',
+            confirmButtonColor: '#FBFADA',
+            confirmButtonTextColor: '#12372A',
+            backdrop: 'rgba(0, 0, 0, 0.7)',
+            html: null,
+            footer: null,
+            // FORÇAR NÃO TER INPUT
+            input: undefined,
+            inputAttributes: undefined,
+            inputOptions: undefined,
+            inputPlaceholder: undefined,
+            inputValue: undefined,
+            inputValidator: undefined,
+            inputAutoFocus: false,
+            inputAutoTrim: false
         });
     }
 
-    static mostrarErro(mensagem) {
+    static async mostrarErro(mensagem) {
         return Swal.fire({
             icon: 'error',
             title: 'Erro!',
-            text: mensagem
+            text: mensagem,
+            confirmButtonText: 'OK',
+            background: '#12372A',
+            color: '#FBFADA',
+            confirmButtonColor: '#FBFADA',
+            confirmButtonTextColor: '#12372A',
+            backdrop: 'rgba(0, 0, 0, 0.7)',
+            html: null,
+            footer: null,
+            // FORÇAR NÃO TER INPUT
+            input: undefined,
+            inputAttributes: undefined,
+            inputOptions: undefined,
+            inputPlaceholder: undefined,
+            inputValue: undefined,
+            inputValidator: undefined,
+            inputAutoFocus: false,
+            inputAutoTrim: false
         });
     }
 
-    static mostrarAviso(mensagem) {
+    static async mostrarAviso(mensagem) {
         return Swal.fire({
             icon: 'warning',
             title: 'Atenção!',
-            text: mensagem
+            text: mensagem,
+            confirmButtonText: 'OK',
+            background: '#12372A',
+            color: '#FBFADA',
+            confirmButtonColor: '#FBFADA',
+            confirmButtonTextColor: '#12372A',
+            backdrop: 'rgba(0, 0, 0, 0.7)',
+            html: null,
+            footer: null,
+            // FORÇAR NÃO TER INPUT
+            input: undefined,
+            inputAttributes: undefined,
+            inputOptions: undefined,
+            inputPlaceholder: undefined,
+            inputValue: undefined,
+            inputValidator: undefined,
+            inputAutoFocus: false,
+            inputAutoTrim: false
         });
     }
 }

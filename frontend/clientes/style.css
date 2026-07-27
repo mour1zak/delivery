@@ -1,8 +1,19 @@
+/* Clientes - Padrão MAYSON BURGUER */
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    margin-bottom: 20px;
+}
+
 .page-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .search-box {
@@ -11,10 +22,24 @@
 
 .search-input {
     max-width: 400px;
-    padding: 10px 15px;
-    border: 1px solid var(--medium-gray);
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: var(--radius);
+    color: #FBFADA;
     font-size: 14px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: rgba(251, 250, 218, 0.3);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #FBFADA;
+    background: rgba(255,255,255,0.08);
 }
 
 .form-grid {
@@ -29,40 +54,75 @@
     justify-content: flex-end;
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid var(--light-gray);
+    border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 .cliente-inativo {
     opacity: 0.6;
-    background-color: #f8f9fa;
 }
 
 .status-badge {
     display: inline-block;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 12px;
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 11px;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
 .status-ativo {
-    background: #d4edda;
-    color: #155724;
+    background: rgba(251, 250, 218, 0.15);
+    color: #FBFADA;
 }
 
 .status-inativo {
-    background: #f8d7da;
-    color: #721c24;
+    background: rgba(251, 250, 218, 0.06);
+    color: rgba(251, 250, 218, 0.4);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.btn-warning {
+    background: rgba(251, 250, 218, 0.08);
+    color: #FBFADA;
+    border: 1px solid rgba(251, 250, 218, 0.1);
+}
+
+.btn-warning:hover {
+    background: rgba(251, 250, 218, 0.15);
+}
+
+.btn-success {
+    background: rgba(251, 250, 218, 0.12);
+    color: #FBFADA;
+    border: 1px solid rgba(251, 250, 218, 0.15);
+}
+
+.btn-success:hover {
+    background: rgba(251, 250, 218, 0.2);
 }
 
 @media (max-width: 768px) {
     .page-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+        justify-content: center;
+    }
+    
+    .page-title {
+        text-align: center;
+        font-size: 1.6rem;
     }
     
     .form-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .search-input {
+        max-width: 100%;
     }
 }
