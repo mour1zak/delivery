@@ -2,12 +2,11 @@
 class ClientesController {
     constructor() {
         this.clientes = [];
-        this.clienteId = null; // Para edição
+        this.clienteId = null;
         this.init();
     }
 
     async init() {
-        // Verificar se é página de listagem ou cadastro
         if (window.location.pathname.includes('listagem.html')) {
             await this.initListagem();
         } else if (window.location.pathname.includes('cadastro.html')) {
@@ -26,7 +25,6 @@ class ClientesController {
         try {
             const container = document.getElementById('clientesContent');
             container.innerHTML = '<div class="loading">Carregando</div>';
-
             this.clientes = await api.get('clientes');
         } catch (error) {
             console.error('Erro ao carregar clientes:', error);
@@ -40,56 +38,56 @@ class ClientesController {
 
         if (!clientes || clientes.length === 0) {
             container.innerHTML = `
-            <div class="no-data">
-                <p>Nenhum cliente cadastrado</p>
-                <a href="cadastro.html" class="btn btn-primary mt-20">Cadastrar Primeiro Cliente</a>
-            </div>
-        `;
+                <div class="no-data">
+                    <p>Nenhum cliente cadastrado</p>
+                    <a href="cadastro.html" class="btn btn-primary mt-20">Cadastrar Primeiro Cliente</a>
+                </div>
+            `;
             return;
         }
 
         container.innerHTML = `
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                        <th>Telefone</th>
-                        <th>Endereço</th>
-                        <th>Situação</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${clientes.map(cliente => `
-                        <tr class="${cliente.ativo ? '' : 'cliente-inativo'}">
-                            <td>${cliente.nome}</td>
-                            <td>${Helpers.formatarCPF(cliente.cpf)}</td>
-                            <td>${cliente.telefone}</td>
-                            <td>${cliente.endereco}</td>
-                            <td>
-                                <span class="status-badge ${cliente.ativo ? 'status-ativo' : 'status-inativo'}">
-                                    ${cliente.ativo ? 'Ativo' : 'Inativo'}
-                                </span>
-                            </td>
-                            <td>
-                                <div class="action-buttons">
-                                    <button class="btn btn-secondary btn-sm" onclick="clientesController.editarCliente(${cliente.id})">
-                                        Editar
-                                    </button>
-                                    <button class="btn ${cliente.ativo ? 'btn-warning' : 'btn-success'} btn-sm" 
-                                            onclick="clientesController.toggleStatus(${cliente.id})">
-                                        ${cliente.ativo ? 'Inativar' : 'Reativar'}
-                                    </button>
-                                </div>
-                            </td>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Telefone</th>
+                            <th>Endereço</th>
+                            <th>Situação</th>
+                            <th>Ações</th>
                         </tr>
-                    `).join('')}
-                </tbody>
-            </table>
-        </div>
-    `;
+                    </thead>
+                    <tbody>
+                        ${clientes.map(cliente => `
+                            <tr class="${cliente.ativo ? '' : 'cliente-inativo'}">
+                                <td>${cliente.nome}</td>
+                                <td>${Helpers.formatarCPF(cliente.cpf)}</td>
+                                <td>${cliente.telefone}</td>
+                                <td>${cliente.endereco}</td>
+                                <td>
+                                    <span class="status-badge ${cliente.ativo ? 'status-ativo' : 'status-inativo'}">
+                                        ${cliente.ativo ? 'Ativo' : 'Inativo'}
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-secondary btn-sm" onclick="clientesController.editarCliente(${cliente.id})">
+                                            Editar
+                                        </button>
+                                        <button class="btn ${cliente.ativo ? 'btn-warning' : 'btn-success'} btn-sm" 
+                                                onclick="clientesController.toggleStatus(${cliente.id})">
+                                            ${cliente.ativo ? 'Inativar' : 'Reativar'}
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+        `;
     }
 
     configurarBusca() {
@@ -128,15 +126,23 @@ class ClientesController {
         try {
             await api.patch(`clientes/${id}`, { ativo: !cliente.ativo });
 
+            // ATUALIZAR LOCAL IMEDIATAMENTE
+            const clienteAtualizado = this.clientes.find(c => c.id === id);
+            if (clienteAtualizado) {
+                clienteAtualizado.ativo = !clienteAtualizado.ativo;
+            }
+
             await Helpers.mostrarSucesso(`Cliente ${acao}do com sucesso!`);
+
+            // RECARREGAR E RENDERIZAR
             await this.carregarClientes();
             this.renderizarTabela();
+
         } catch (error) {
             console.error('Erro ao alterar status:', error);
             Helpers.mostrarErro(`Erro ao ${acao} cliente`);
         }
     }
-
     editarCliente(id) {
         window.location.href = `cadastro.html?id=${id}`;
     }
@@ -145,13 +151,12 @@ class ClientesController {
     async initCadastro() {
         this.configurarMascaras();
 
-        // Verificar se é edição (tem ID na URL)
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
 
         if (id) {
             this.clienteId = parseInt(id);
-            document.getElementById('formTitle').textContent = '✏️ Editar Cliente';
+            document.getElementById('formTitle').textContent = 'Editar Cliente';
             await this.carregarDadosCliente();
         }
 
@@ -200,8 +205,6 @@ class ClientesController {
 
     async validarCPFUnico(cpf) {
         const cpfLimpo = cpf.replace(/\D/g, '');
-
-        // Buscar todos os clientes (para verificar duplicidade)
         const clientes = await api.get('clientes');
 
         const duplicado = clientes.find(c => {
@@ -210,6 +213,32 @@ class ClientesController {
         });
 
         return !duplicado;
+    }
+
+    // ============================================
+    // BUSCAR CEP VIA VIACEP
+    // ============================================
+
+    async buscarCEP() {
+        const cepInput = document.getElementById('cep');
+        const cep = cepInput.value;
+
+        if (!cep || cep.replace(/\D/g, '').length !== 8) {
+            Helpers.mostrarAviso('Digite um CEP válido com 8 números');
+            return;
+        }
+
+        try {
+            const data = await Helpers.consultarCEP(cep);
+
+            if (data) {
+                document.getElementById('endereco').value = data.logradouro || '';
+                document.getElementById('bairro').value = data.bairro || '';
+                await Helpers.mostrarSucesso('CEP encontrado! Campos preenchidos automaticamente.');
+            }
+        } catch (error) {
+            Helpers.mostrarErro(error.message);
+        }
     }
 
     async salvarCliente() {
@@ -223,7 +252,6 @@ class ClientesController {
             cep: document.getElementById('cep').value
         };
 
-        // Validações
         if (!formData.nome) {
             Helpers.mostrarAviso('Nome é obrigatório');
             return;
@@ -244,7 +272,6 @@ class ClientesController {
             return;
         }
 
-        // Validar CPF único
         const cpfUnico = await this.validarCPFUnico(formData.cpf);
         if (!cpfUnico) {
             Helpers.mostrarErro('CPF já cadastrado para outro cliente');
@@ -253,25 +280,20 @@ class ClientesController {
 
         try {
             if (this.clienteId) {
-                // Edição
                 await api.put(`clientes/${this.clienteId}`, {
                     ...formData,
-                    ativo: true, // Mantém ativo na edição
+                    ativo: true,
                     id: this.clienteId
                 });
-
                 await Helpers.mostrarSucesso('Cliente atualizado com sucesso!');
             } else {
-                // Criação
                 await api.post('clientes', {
                     ...formData,
-                    ativo: true // Cliente criado como ativo
+                    ativo: true
                 });
-
                 await Helpers.mostrarSucesso('Cliente cadastrado com sucesso!');
             }
 
-            // Redirecionar para listagem
             setTimeout(() => {
                 window.location.href = 'listagem.html';
             }, 1000);
@@ -282,7 +304,6 @@ class ClientesController {
     }
 }
 
-// Inicializar controller
 let clientesController;
 document.addEventListener('DOMContentLoaded', () => {
     clientesController = new ClientesController();

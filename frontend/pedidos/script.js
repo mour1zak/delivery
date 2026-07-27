@@ -261,15 +261,23 @@ class PedidosController {
         try {
             await api.patch(`pedidos/${id}`, { status: novoStatus });
 
+            // ATUALIZAR O ARRAY LOCAL IMEDIATAMENTE
+            const pedidoAtualizado = this.pedidos.find(p => p.id === id);
+            if (pedidoAtualizado) {
+                pedidoAtualizado.status = novoStatus;
+            }
+
             await Helpers.mostrarSucesso(`Pedido #${id} agora está "${novoStatus}"`);
+
+            // RECARREGAR DADOS E RENDERIZAR
             await this.carregarDados();
             this.renderizarTabela();
+
         } catch (error) {
             console.error('Erro ao avançar status:', error);
             Helpers.mostrarErro('Erro ao avançar status do pedido');
         }
     }
-
     async cancelarPedido(id) {
         const pedido = this.pedidos.find(p => p.id === id);
         if (!pedido) return;

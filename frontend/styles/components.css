@@ -23,6 +23,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .card-header h2 {
@@ -77,18 +79,23 @@
 }
 
 .btn-success {
-  background: #FBFADA;
-  color: #12372A;
+  background: rgba(251, 250, 218, 0.12);
+  color: #FBFADA;
+  border: 1px solid rgba(251, 250, 218, 0.15);
 }
 
-.btn-warning {
-  background: #FBFADA;
-  color: #12372A;
+.btn-success:hover {
+  background: rgba(251, 250, 218, 0.2);
 }
 
 .btn-danger {
-  background: #FBFADA;
-  color: #12372A;
+  background: rgba(251, 250, 218, 0.06);
+  color: #FBFADA;
+  border: 1px solid rgba(251, 250, 218, 0.08);
+}
+
+.btn-danger:hover {
+  background: rgba(251, 250, 218, 0.12);
 }
 
 .btn-sm {

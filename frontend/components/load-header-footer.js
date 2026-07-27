@@ -66,6 +66,36 @@ class LayoutLoader {
 }
 
 // Auto-inicializar quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', () => {
-    LayoutLoader.init();
+// Carregar Header e Footer
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // Carregar Header
+        const headerResponse = await fetch('/components/header.html');
+        const headerHtml = await headerResponse.text();
+        document.getElementById('header-placeholder').innerHTML = headerHtml;
+        
+        // Carregar Footer
+        const footerResponse = await fetch('/components/footer.html');
+        const footerHtml = await footerResponse.text();
+        document.getElementById('footer-placeholder').innerHTML = footerHtml;
+        
+        // Atualizar link ativo
+        const currentPath = window.location.pathname;
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (currentPath.includes(link.getAttribute('href'))) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Menu mobile
+        const mobileBtn = document.querySelector('.btn-mobile-menu');
+        const nav = document.querySelector('.main-nav');
+        if (mobileBtn && nav) {
+            mobileBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        }
+    } catch (error) {
+        console.error('Erro ao carregar header/footer:', error);
+    }
 });

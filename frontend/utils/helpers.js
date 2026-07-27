@@ -121,7 +121,7 @@ class Helpers {
     }
 
     // ============================================
-    // MENSAGENS DO SISTEMA - CORREÇÃO DEFINITIVA
+    // MENSAGENS DO SISTEMA
     // ============================================
 
     static async mostrarConfirmacao(mensagem) {
@@ -133,10 +133,6 @@ class Helpers {
             confirmButtonText: 'Sim',
             cancelButtonText: 'Não',
             reverseButtons: true,
-            // REMOVER QUALQUER INPUT
-            showConfirmButton: true,
-            showCancelButton: true,
-            // Estilos
             background: '#12372A',
             color: '#FBFADA',
             confirmButtonColor: '#FBFADA',
@@ -144,18 +140,8 @@ class Helpers {
             cancelButtonColor: 'rgba(251, 250, 218, 0.06)',
             cancelButtonTextColor: '#FBFADA',
             backdrop: 'rgba(0, 0, 0, 0.7)',
-            // Remover HTML extra
-            html: null,
-            footer: null,
-            // FORÇAR NÃO TER INPUT
             input: undefined,
-            inputAttributes: undefined,
-            inputOptions: undefined,
-            inputPlaceholder: undefined,
-            inputValue: undefined,
-            inputValidator: undefined,
-            inputAutoFocus: false,
-            inputAutoTrim: false
+            inputAttributes: undefined
         });
         
         return result.isConfirmed;
@@ -166,7 +152,6 @@ class Helpers {
             icon: 'success',
             title: 'Sucesso!',
             text: mensagem,
-            timer: 2500,
             showConfirmButton: true,
             confirmButtonText: 'OK',
             background: '#12372A',
@@ -174,17 +159,8 @@ class Helpers {
             confirmButtonColor: '#FBFADA',
             confirmButtonTextColor: '#12372A',
             backdrop: 'rgba(0, 0, 0, 0.7)',
-            html: null,
-            footer: null,
-            // FORÇAR NÃO TER INPUT
             input: undefined,
-            inputAttributes: undefined,
-            inputOptions: undefined,
-            inputPlaceholder: undefined,
-            inputValue: undefined,
-            inputValidator: undefined,
-            inputAutoFocus: false,
-            inputAutoTrim: false
+            inputAttributes: undefined
         });
     }
 
@@ -199,17 +175,8 @@ class Helpers {
             confirmButtonColor: '#FBFADA',
             confirmButtonTextColor: '#12372A',
             backdrop: 'rgba(0, 0, 0, 0.7)',
-            html: null,
-            footer: null,
-            // FORÇAR NÃO TER INPUT
             input: undefined,
-            inputAttributes: undefined,
-            inputOptions: undefined,
-            inputPlaceholder: undefined,
-            inputValue: undefined,
-            inputValidator: undefined,
-            inputAutoFocus: false,
-            inputAutoTrim: false
+            inputAttributes: undefined
         });
     }
 
@@ -224,17 +191,74 @@ class Helpers {
             confirmButtonColor: '#FBFADA',
             confirmButtonTextColor: '#12372A',
             backdrop: 'rgba(0, 0, 0, 0.7)',
-            html: null,
-            footer: null,
-            // FORÇAR NÃO TER INPUT
             input: undefined,
-            inputAttributes: undefined,
-            inputOptions: undefined,
-            inputPlaceholder: undefined,
-            inputValue: undefined,
-            inputValidator: undefined,
-            inputAutoFocus: false,
-            inputAutoTrim: false
+            inputAttributes: undefined
         });
+    }
+
+    // ============================================
+    // VIA CEP - CONSULTA DE CEP
+    // ============================================
+
+    static async consultarCEP(cep) {
+        const cepLimpo = cep.replace(/\D/g, '');
+        
+        if (cepLimpo.length !== 8) {
+            throw new Error('CEP inválido. Digite 8 números.');
+        }
+        
+        try {
+            const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+            
+            if (!response.ok) {
+                throw new Error('Erro ao consultar CEP');
+            }
+            
+            const data = await response.json();
+            
+            if (data.erro) {
+                throw new Error('CEP não encontrado');
+            }
+            
+            return data;
+        } catch (error) {
+            console.error('Erro ao consultar CEP:', error);
+            throw error;
+        }
+    }
+
+    // ============================================
+    // CÁLCULO DE FRETE E DISTÂNCIA
+    // ============================================
+
+    static calcularFrete(distanciaKm) {
+        const taxaFixa = 2.00;
+        const valorPorKm = 3.00;
+        const distancia = Math.max(distanciaKm, 1);
+        return taxaFixa + (distancia * valorPorKm);
+    }
+
+    static calcularTempoEstimado(distanciaKm) {
+        const velocidadeMedia = 20;
+        const tempoHoras = distanciaKm / velocidadeMedia;
+        const tempoMinutos = Math.ceil(tempoHoras * 60);
+        return Math.max(tempoMinutos, 5);
+    }
+
+    static calcularDistancia(cepOrigem, cepDestino) {
+        const hash1 = this.hashCode(cepOrigem);
+        const hash2 = this.hashCode(cepDestino);
+        const distancia = ((hash1 % 15) + (hash2 % 10) + 5) / 10;
+        return Math.round(distancia * 10) / 10;
+    }
+
+    static hashCode(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash;
+        }
+        return Math.abs(hash);
     }
 }

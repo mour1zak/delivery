@@ -2,34 +2,25 @@
     <div class="footer-container">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>🍔 Delivery App</h3>
-                <p>Sistema completo de delivery para restaurantes</p>
-            </div>
-            <div class="footer-section">
-                <h4>Links Úteis</h4>
-                <ul>
-                    <li><a href="/frontend/dashboard/index.html">Dashboard</a></li>
-                    <li><a href="/frontend/clientes/listagem.html">Clientes</a></li>
-                    <li><a href="/frontend/produtos/listagem.html">Produtos</a></li>
-                    <li><a href="/frontend/pedidos/listagem.html">Pedidos</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contato</h4>
-                <p>📞 (11) 99999-9999</p>
-                <p>📧 contato@deliveryapp.com</p>
+                <div class="footer-logo">
+                    <img src="../assets/pexels-jonathanborba-18713429-removebg-preview.png" alt="MAYSON BURGUER" class="footer-logo-img">
+                    <span class="footer-logo-text">MAYSON BURGUER</span>
+                </div>
+                <p>Sistema completo de gestão e controle de pedidos para restaurantes</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Delivery App - Todos os direitos reservados</p>
+            <p>&copy; 2026 MAYSON BURGUER - Sistema de Gestão Administrativa</p>
         </div>
     </div>
 </footer>
 
 <style>
 .main-footer {
-    background: var(--secondary-color);
-    color: white;
+    background: rgba(18, 55, 42, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(251, 250, 218, 0.05);
     padding: 40px 0 20px;
     margin-top: 50px;
 }
@@ -41,42 +32,73 @@
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    display: flex;
+    justify-content: center;
     margin-bottom: 30px;
 }
 
-.footer-section h3,
+.footer-section {
+    text-align: center;
+    max-width: 500px;
+}
+
 .footer-section h4 {
+    color: #FBFADA;
     margin-bottom: 15px;
-    color: white;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.footer-section ul {
-    list-style: none;
-    padding: 0;
+.footer-section p {
+    color: rgba(251, 250, 218, 0.4);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.6;
 }
 
-.footer-section ul li {
-    margin-bottom: 10px;
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
-.footer-section a {
-    color: var(--light-gray);
-    text-decoration: none;
+.footer-logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(251, 250, 218, 0.08));
 }
 
-.footer-section a:hover {
-    color: white;
-    text-decoration: underline;
+.footer-logo-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #FBFADA;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    letter-spacing: -0.5px;
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(251, 250, 218, 0.05);
     padding-top: 20px;
     text-align: center;
-    font-size: 0.9rem;
-    color: var(--medium-gray);
+    color: rgba(251, 250, 218, 0.2);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+    }
 }
 </style>

@@ -30,7 +30,7 @@
       "referencia": "Próximo ao shopping",
       "bairro": "Consolação",
       "cep": "01305-000",
-      "ativo": true,
+      "ativo": false,
       "id": 3
     },
     {
@@ -53,7 +53,7 @@
       "referencia": "Próximo ao hospital",
       "bairro": "Jardim América",
       "cep": "01430-000",
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 6,
@@ -109,6 +109,28 @@
       "bairro": "Vila Madalena",
       "cep": "05416-000",
       "ativo": false
+    },
+    {
+      "nome": "1",
+      "cpf": "212.121.211-22",
+      "telefone": "(11) 97747-4490",
+      "endereco": "Rua Senador Nelson Carneiro",
+      "referencia": "",
+      "bairro": "Conjunto Habitacional Santa Etelvina II",
+      "cep": "08485-300",
+      "ativo": true,
+      "id": 11
+    },
+    {
+      "nome": "kaique",
+      "cpf": "444.444.444-44",
+      "telefone": "(11) 11111-1123",
+      "endereco": "Rua Xavier de Magalhães",
+      "referencia": "aaaa",
+      "bairro": "Jardim dos Manacás",
+      "cep": "04844-120",
+      "ativo": true,
+      "id": 12
     }
   ],
   "produtos": [
@@ -181,7 +203,7 @@
       "nome": "Batata Frita",
       "categoria": "acompanhamento",
       "preco": 12.9,
-      "disponivel": true,
+      "disponivel": false,
       "tipoProducao": "padrão"
     },
     {
@@ -248,7 +270,7 @@
       "id": 3,
       "clienteId": 4,
       "dataHora": "2026-07-27T16:00:00.000Z",
-      "status": "saiu para entrega",
+      "status": "entregue",
       "valorTotal": 63.7,
       "itens": [
         {
@@ -310,7 +332,7 @@
       "id": 5,
       "clienteId": 8,
       "dataHora": "2026-07-27T17:10:00.000Z",
-      "status": "em preparo",
+      "status": "cancelado",
       "valorTotal": 45.8,
       "itens": [
         {
@@ -332,7 +354,7 @@
           "observacoes": ""
         }
       ],
-      "motivoCancelamento": null
+      "motivoCancelamento": "Problema no pagamento"
     },
     {
       "clienteId": 2,
@@ -355,6 +377,54 @@
       ],
       "motivoCancelamento": "Cliente desistiu",
       "id": 6
+    },
+    {
+      "clienteId": 5,
+      "dataHora": "2026-07-27T20:30:17.213Z",
+      "status": "entregue",
+      "valorTotal": 25.9,
+      "itens": [
+        {
+          "produtoId": 1,
+          "quantidade": 1,
+          "precoUnitario": 25.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 7
+    },
+    {
+      "clienteId": 11,
+      "dataHora": "2026-07-27T20:38:37.963Z",
+      "status": "cancelado",
+      "valorTotal": 25.9,
+      "itens": [
+        {
+          "produtoId": 1,
+          "quantidade": 1,
+          "precoUnitario": 25.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": "Cliente desistiu",
+      "id": 8
+    },
+    {
+      "clienteId": 4,
+      "dataHora": "2026-07-27T20:38:59.940Z",
+      "status": "cancelado",
+      "valorTotal": 25.9,
+      "itens": [
+        {
+          "produtoId": 1,
+          "quantidade": 1,
+          "precoUnitario": 25.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": "Restaurante sem capacidade",
+      "id": 9
     }
   ]
 }

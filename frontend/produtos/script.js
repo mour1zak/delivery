@@ -15,6 +15,44 @@ class ProdutosController {
         }
     }
 
+
+    // ============================================
+    // FORMATAR PREÇO
+    // ============================================
+
+    formatarPreco(input) {
+        let value = input.value.replace(/\D/g, '');
+
+        if (value === '') {
+            input.value = '';
+            return;
+        }
+
+        // Converter para número
+        let numero = parseInt(value) / 100;
+        let formatado = numero.toLocaleString('pt-BR', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+        input.value = formatado;
+    }
+
+    // No método salvarProduto, ajuste para converter o preço
+    async salvarProduto() {
+        const precoInput = document.getElementById('preco');
+        const precoFormatado = precoInput.value.replace(/\./g, '').replace(',', '.');
+        const preco = parseFloat(precoFormatado);
+
+        const formData = {
+            nome: document.getElementById('nome').value.trim(),
+            categoria: document.getElementById('categoria').value,
+            preco: preco,
+            tipoProducao: document.getElementById('tipoProducao').value.trim()
+        };
+
+        // ... resto do código
+    }
     // ============ LISTAGEM ============
     async initListagem() {
         await this.carregarDados();
@@ -134,20 +172,27 @@ class ProdutosController {
         try {
             await api.patch(`produtos/${id}`, { disponivel: !produto.disponivel });
 
+            // ATUALIZAR LOCAL IMEDIATAMENTE
+            const produtoAtualizado = this.produtos.find(p => p.id === id);
+            if (produtoAtualizado) {
+                produtoAtualizado.disponivel = !produtoAtualizado.disponivel;
+            }
+
             await Helpers.mostrarSucesso(`Produto ${produto.disponivel ? 'indisponível' : 'disponível'} agora!`);
+
+            // RECARREGAR E RENDERIZAR
             await this.carregarDados();
             this.renderizarTabela();
+
         } catch (error) {
             console.error('Erro ao alterar disponibilidade:', error);
             Helpers.mostrarErro('Erro ao alterar disponibilidade do produto');
         }
     }
-
     async excluirProduto(id) {
         const produto = this.produtos.find(p => p.id === id);
         if (!produto) return;
 
-        // Verificar se produto está em pedidos
         const emUso = this.pedidos.some(pedido =>
             pedido.itens && pedido.itens.some(item => item.produtoId === id)
         );
@@ -169,9 +214,15 @@ class ProdutosController {
         try {
             await api.delete(`produtos/${id}`);
 
+            // REMOVER DO ARRAY LOCAL
+            this.produtos = this.produtos.filter(p => p.id !== id);
+
             await Helpers.mostrarSucesso('Produto excluído com sucesso!');
+
+            // RECARREGAR E RENDERIZAR
             await this.carregarDados();
             this.renderizarTabela();
+
         } catch (error) {
             console.error('Erro ao excluir produto:', error);
             Helpers.mostrarErro('Erro ao excluir produto');
@@ -236,12 +287,18 @@ class ProdutosController {
     }
 
     async salvarProduto() {
+        const precoInput = document.getElementById('preco');
+        // Converter de "1.234,56" para 1234.56
+        const precoFormatado = precoInput.value.replace(/\./g, '').replace(',', '.');
+        const preco = parseFloat(precoFormatado);
+
         const formData = {
             nome: document.getElementById('nome').value.trim(),
             categoria: document.getElementById('categoria').value,
-            preco: parseFloat(document.getElementById('preco').value),
+            preco: preco,
             tipoProducao: document.getElementById('tipoProducao').value.trim()
         };
+
 
         // Validações
         if (!formData.nome) {
