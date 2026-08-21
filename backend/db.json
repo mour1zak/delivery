@@ -42,7 +42,7 @@
       "referencia": "Em frente à praça",
       "bairro": "Jardins",
       "cep": "01426-000",
-      "ativo": true
+      "ativo": false
     },
     {
       "id": 5,
@@ -131,40 +131,120 @@
       "cep": "04844-120",
       "ativo": true,
       "id": 12
+    },
+    {
+      "nome": "Marcio de Amorim",
+      "cpf": "222.222.222-22",
+      "telefone": "(11) 98239-2211",
+      "endereco": "Rua Senador Nelson Carneiro",
+      "referencia": "177 apto 34C",
+      "bairro": "Conjunto Habitacional Santa Etelvina II",
+      "cep": "08485-300",
+      "ativo": false,
+      "id": 13
+    },
+    {
+      "nome": "Chestão",
+      "cpf": "123.123.123-13",
+      "telefone": "(11) 98756-4480",
+      "endereco": "Rua Arroio Campo Bom",
+      "referencia": "",
+      "bairro": "Conjunto Habitacional Santa Etelvina III",
+      "cep": "08485-475",
+      "ativo": true,
+      "id": 14
+    },
+    {
+      "nome": "Bruna",
+      "cpf": "210.233.133-22",
+      "telefone": "(19) 29292-9103",
+      "endereco": "Rua Alto Pajeú",
+      "referencia": "",
+      "bairro": "Engenheiro Goulart",
+      "cep": "03726-200",
+      "ativo": true,
+      "id": 15
+    },
+    {
+      "nome": "Marlon",
+      "cpf": "303.382.381-58",
+      "telefone": "(11) 99876-5432",
+      "endereco": "Rua Narciso Sturlini",
+      "referencia": "",
+      "bairro": "Centro",
+      "cep": "06018-100",
+      "ativo": true,
+      "id": 16
+    },
+    {
+      "nome": "Gabriel",
+      "cpf": "333.333.333-11",
+      "telefone": "(11) 97475-5665",
+      "endereco": "Rua Senador Nelson Carneiro",
+      "referencia": "",
+      "bairro": "Conjunto Habitacional Santa Etelvina II",
+      "cep": "08485-300",
+      "ativo": true,
+      "id": 17
+    },
+    {
+      "nome": "Lucas",
+      "cpf": "221.111.222-22",
+      "telefone": "(11) 98837-3722",
+      "endereco": "Rua Senador Nelson Carneiro",
+      "referencia": "",
+      "bairro": "Conjunto Habitacional Santa Etelvina II",
+      "cep": "08485-300",
+      "ativo": false,
+      "id": 18
+    },
+    {
+      "nome": "Gabriel",
+      "cpf": "123.333.333-33",
+      "telefone": "(11) 98222-2222",
+      "endereco": "Rua Senador Nelson Carneiro",
+      "referencia": "apto 34c",
+      "bairro": "Conjunto Habitacional Santa Etelvina II",
+      "cep": "08485-300",
+      "ativo": true,
+      "id": 19
+    },
+    {
+      "nome": "gabriel moura",
+      "cpf": "220.313.133-13",
+      "telefone": "(11) 98283-9823",
+      "endereco": "Rua Senador Nelson Carneiro",
+      "referencia": "",
+      "bairro": "Conjunto Habitacional Santa Etelvina II",
+      "cep": "08485-300",
+      "ativo": true,
+      "id": 20
     }
   ],
   "produtos": [
     {
-      "id": 1,
-      "nome": "X-Burger",
-      "categoria": "lanche",
-      "preco": 25.9,
-      "disponivel": true,
-      "tipoProducao": "padrão"
-    },
-    {
-      "nome": "X-Bacon",
+      "nome": "X Bacon",
       "categoria": "bebida",
-      "preco": 29.9,
+      "preco": 27,
       "tipoProducao": "padrão",
       "disponivel": false,
       "id": 2
     },
     {
-      "id": 3,
-      "nome": "X-Salada",
+      "nome": "X Salada",
       "categoria": "lanche",
-      "preco": 22.9,
-      "disponivel": false,
-      "tipoProducao": "padrão"
+      "preco": 23,
+      "tipoProducao": "padrão",
+      "disponivel": true,
+      "id": 3
     },
     {
-      "id": 4,
-      "nome": "Coca-Cola 350ml",
+      "nome": "Coca Cola 350ml",
       "categoria": "bebida",
       "preco": 7.5,
+      "tipoProducao": "padrão",
       "disponivel": true,
-      "tipoProducao": "padrão"
+      "id": 4
     },
     {
       "id": 5,
@@ -203,7 +283,7 @@
       "nome": "Batata Frita",
       "categoria": "acompanhamento",
       "preco": 12.9,
-      "disponivel": false,
+      "disponivel": true,
       "tipoProducao": "padrão"
     },
     {
@@ -213,6 +293,38 @@
       "preco": 14.9,
       "disponivel": true,
       "tipoProducao": "padrão"
+    },
+    {
+      "nome": "X SALADA",
+      "categoria": "lanche",
+      "preco": 20,
+      "tipoProducao": "padrao",
+      "disponivel": true,
+      "id": 11
+    },
+    {
+      "nome": "Brownie",
+      "categoria": "sobremesa",
+      "preco": 8,
+      "tipoProducao": "Padrao",
+      "disponivel": true,
+      "id": 12
+    },
+    {
+      "nome": "Mousse de Maracuja",
+      "categoria": "sobremesa",
+      "preco": 9,
+      "tipoProducao": "Padrao",
+      "disponivel": true,
+      "id": 13
+    },
+    {
+      "nome": "aaaaa",
+      "categoria": "sobremesa",
+      "preco": 12.33,
+      "tipoProducao": "padrao",
+      "disponivel": true,
+      "id": 14
     }
   ],
   "pedidos": [
@@ -425,6 +537,278 @@
       ],
       "motivoCancelamento": "Restaurante sem capacidade",
       "id": 9
+    },
+    {
+      "clienteId": 13,
+      "dataHora": "2026-07-28T00:48:23.530Z",
+      "status": "entregue",
+      "valorTotal": 57.8,
+      "itens": [
+        {
+          "produtoId": 5,
+          "quantidade": 2,
+          "precoUnitario": 8.9,
+          "observacoes": ""
+        },
+        {
+          "produtoId": 11,
+          "quantidade": 2,
+          "precoUnitario": 20,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 10
+    },
+    {
+      "clienteId": 12,
+      "dataHora": "2026-07-28T11:21:15.947Z",
+      "status": "entregue",
+      "valorTotal": 29.8,
+      "itens": [
+        {
+          "produtoId": 10,
+          "quantidade": 2,
+          "precoUnitario": 14.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 11
+    },
+    {
+      "clienteId": 9,
+      "dataHora": "2026-07-28T11:24:55.004Z",
+      "status": "entregue",
+      "valorTotal": 17.8,
+      "itens": [
+        {
+          "produtoId": 5,
+          "quantidade": 2,
+          "precoUnitario": 8.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 12
+    },
+    {
+      "clienteId": 14,
+      "dataHora": "2026-07-28T11:34:35.653Z",
+      "status": "entregue",
+      "valorTotal": 34.8,
+      "itens": [
+        {
+          "produtoId": 5,
+          "quantidade": 1,
+          "precoUnitario": 8.9,
+          "observacoes": ""
+        },
+        {
+          "produtoId": 1,
+          "quantidade": 1,
+          "precoUnitario": 25.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 13
+    },
+    {
+      "clienteId": 15,
+      "dataHora": "2026-07-28T11:35:57.039Z",
+      "status": "entregue",
+      "valorTotal": 9.9,
+      "itens": [
+        {
+          "produtoId": 7,
+          "quantidade": 1,
+          "precoUnitario": 9.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 14
+    },
+    {
+      "clienteId": 16,
+      "dataHora": "2026-07-28T11:49:08.037Z",
+      "status": "entregue",
+      "valorTotal": 35.8,
+      "itens": [
+        {
+          "produtoId": 7,
+          "quantidade": 1,
+          "precoUnitario": 9.9,
+          "observacoes": ""
+        },
+        {
+          "produtoId": 1,
+          "quantidade": 1,
+          "precoUnitario": 25.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 15
+    },
+    {
+      "clienteId": 4,
+      "dataHora": "2026-07-28T11:55:16.496Z",
+      "status": "cancelado",
+      "valorTotal": 33.5,
+      "itens": [
+        {
+          "produtoId": 1,
+          "quantidade": 1,
+          "precoUnitario": 29,
+          "observacoes": ""
+        },
+        {
+          "produtoId": 6,
+          "quantidade": 1,
+          "precoUnitario": 4.5,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": "Restaurante sem capacidade",
+      "id": 16
+    },
+    {
+      "clienteId": 15,
+      "dataHora": "2026-07-28T12:07:41.885Z",
+      "status": "entregue",
+      "valorTotal": 23,
+      "itens": [
+        {
+          "produtoId": 3,
+          "quantidade": 1,
+          "precoUnitario": 23,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 17
+    },
+    {
+      "clienteId": 17,
+      "dataHora": "2026-07-28T12:17:39.347Z",
+      "status": "entregue",
+      "valorTotal": 95.9,
+      "itens": [
+        {
+          "produtoId": 1,
+          "quantidade": 3,
+          "precoUnitario": 29,
+          "observacoes": ""
+        },
+        {
+          "produtoId": 5,
+          "quantidade": 1,
+          "precoUnitario": 8.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 18
+    },
+    {
+      "clienteId": 18,
+      "dataHora": "2026-07-28T12:28:32.725Z",
+      "status": "entregue",
+      "valorTotal": 54.9,
+      "itens": [
+        {
+          "produtoId": 3,
+          "quantidade": 2,
+          "precoUnitario": 23,
+          "observacoes": ""
+        },
+        {
+          "produtoId": 5,
+          "quantidade": 1,
+          "precoUnitario": 8.9,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 19
+    },
+    {
+      "clienteId": 18,
+      "dataHora": "2026-07-28T12:49:28.626Z",
+      "status": "entregue",
+      "valorTotal": 31,
+      "itens": [
+        {
+          "produtoId": 12,
+          "quantidade": 1,
+          "precoUnitario": 8,
+          "observacoes": ""
+        },
+        {
+          "produtoId": 3,
+          "quantidade": 1,
+          "precoUnitario": 23,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 20
+    },
+    {
+      "clienteId": 4,
+      "dataHora": "2026-07-28T13:13:18.951Z",
+      "status": "recebido",
+      "valorTotal": 27,
+      "itens": [
+        {
+          "produtoId": 2,
+          "quantidade": 1,
+          "precoUnitario": 27,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 21
+    },
+    {
+      "clienteId": 19,
+      "dataHora": "2026-07-28T14:22:03.888Z",
+      "status": "saiu para entrega",
+      "valorTotal": 49.7,
+      "itens": [
+        {
+          "produtoId": 7,
+          "quantidade": 3,
+          "precoUnitario": 9.9,
+          "observacoes": ""
+        },
+        {
+          "produtoId": 11,
+          "quantidade": 1,
+          "precoUnitario": 20,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 22
+    },
+    {
+      "clienteId": 6,
+      "dataHora": "2026-07-29T12:02:59.316Z",
+      "status": "em preparo",
+      "valorTotal": 7.5,
+      "itens": [
+        {
+          "produtoId": 4,
+          "quantidade": 1,
+          "precoUnitario": 7.5,
+          "observacoes": ""
+        }
+      ],
+      "motivoCancelamento": null,
+      "id": 23
     }
   ]
 }

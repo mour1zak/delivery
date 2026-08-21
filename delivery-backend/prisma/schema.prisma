@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum CategoriaProduto {
+  lanche
+  bebida
+  sobremesa
+  acompanhamento
+}
+
+enum StatusPedido {
+  recebido
+  em_preparo         @map("em preparo")
+  saiu_para_entrega  @map("saiu para entrega")
+  entregue
+  cancelado
+}
+
+model Cliente {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  cpf        String   @unique
+  telefone   String
+  endereco   String
+  referencia String?
+  bairro     String
+  cep        String
+  ativo      Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  pedidos Pedido[]
+}
+
+model Produto {
+  id           Int              @id @default(autoincrement())
+  nome         String
+  categoria    CategoriaProduto
+  preco        Decimal          @db.Decimal(10, 2)
+  tipoProducao String           @default("padrão")
+  disponivel   Boolean          @default(true)
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  itensPedido ItemPedido[]
+}
+
+model Pedido {
+  id                  Int          @id @default(autoincrement())
+  cliente             Cliente      @relation(fields: [clienteId], references: [id])
+  clienteId           Int
+  dataHora            DateTime     @default(now())
+  status              StatusPedido @default(recebido)
+  valorTotal          Decimal      @db.Decimal(10, 2)
+  motivoCancelamento  String?
+
+  itens ItemPedido[]
+}
+
+model ItemPedido {
+  id             Int     @id @default(autoincrement())
+  pedido         Pedido  @relation(fields: [pedidoId], references: [id], onDelete: Cascade)
+  pedidoId       Int
+  produto        Produto @relation(fields: [produtoId], references: [id])
+  produtoId      Int
+  quantidade     Int
+  precoUnitario  Decimal @db.Decimal(10, 2)
+  observacoes    String?
+}
